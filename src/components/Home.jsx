@@ -1,5 +1,6 @@
 import { Button } from "flowbite-react";
 import React from "react";
+import FeaturedFood from "./FeaturedFood";
 
 const Home = () => {
   return (
@@ -48,6 +49,9 @@ const Home = () => {
                 <p>Good food will help you to lead a healthy and happy life.</p>
             </div>
       </div>
+
+      
+      <FeaturedFood></FeaturedFood>
     </div>
   );
 };
