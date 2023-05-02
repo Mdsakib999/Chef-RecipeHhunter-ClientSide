@@ -1,6 +1,8 @@
 import { Button } from "flowbite-react";
 import React from "react";
 import FeaturedFood from "./FeaturedFood";
+import ContactPage from "./ContactPage";
+import Chefs from "./Chefs";
 
 const Home = () => {
   return (
@@ -50,8 +52,12 @@ const Home = () => {
             </div>
       </div>
 
-      
+
       <FeaturedFood></FeaturedFood>
+
+      <Chefs></Chefs>
+
+      <ContactPage></ContactPage>
     </div>
   );
 };

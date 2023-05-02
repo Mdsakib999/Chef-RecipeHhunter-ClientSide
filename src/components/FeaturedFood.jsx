@@ -49,7 +49,7 @@ const FeaturedFood = () => {
           </div>
           <div className="flex justify-center items-center gap-8 bg-black">
             <div className="w-[40%] text-white">
-              <h2 className="font-bold text-5xl">Best Quality <span className="text-amber-600">ThaiFood</span></h2>
+              <h2 className="font-bold lg:text-5xl">Best Quality <span className="text-amber-600">ThaiFood</span></h2>
               <p className="my-4">
               Thai dishes are sweet, salty, spicy or sour. There are many dishes with thick noodles, vegetables, lettuce, and chicken, lamb, shrimp, or beef. Some dishes are more rice geared or contain fruits such as pineapple or papaya. It all depends on what part region of Thailand you're on. Thai food often pairs hot spices with sweet, light citrus flavors like lime and mango. The signature peanut sauce is somewhere between sweet and savory and adds depth to any dish. The layered flavors of Thai food make each dish feel completely unique and is what sets it apart from dishes in other Asian cuisines.
               </p>

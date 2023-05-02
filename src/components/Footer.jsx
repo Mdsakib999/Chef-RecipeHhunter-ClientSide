@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div>
         <div className="bg-black text-white text-center h-[50px]">
-            <p>copyrigth rssurve</p>
+            <p className="font-bold pt-4">MD Sakib © 2023 All rights reserved</p>
         </div>
     </div>
   );
