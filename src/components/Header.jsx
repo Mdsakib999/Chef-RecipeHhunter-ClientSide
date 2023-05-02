@@ -3,7 +3,7 @@ import { Button, Navbar } from "flowbite-react";
 
 const Header = () => {
   return (
-    <div className="w-[90%] mx-auto">
+    <div className="sticky top-0 z-10">
       <Navbar fluid={true} rounded={true}>
         <Navbar href="https://flowbite.com/">
           <img
@@ -16,7 +16,7 @@ const Header = () => {
           </span>
         </Navbar>
         <div className="flex md:order-2">
-          <Button>Get started</Button>
+        <Button gradientDuoTone="pinkToOrange">Register</Button>
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
