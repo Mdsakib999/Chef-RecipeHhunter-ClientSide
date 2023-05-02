@@ -4,7 +4,7 @@ import React from "react";
 const ContactPage = () => {
   return (
     <div>
-      <div id="contact" className="flex justify-center">
+      <div id="contact" className="flex justify-center px-8 lg:px-0">
         <form className="w-full max-w-lg">
           <h2 className="text-4xl font-bold my-8 text-center">Contact Us</h2>
           <div className="flex flex-wrap -mx-3 mb-6">

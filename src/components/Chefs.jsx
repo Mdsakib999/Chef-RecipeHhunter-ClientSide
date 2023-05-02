@@ -12,8 +12,8 @@ const Chefs = () => {
         Meet with your super talented world class chefs.
       </p>
 
-      <div className="w-[90%] mx-auto grid lg:grid-cols-4 gap-8 p-5">
-        <div className="max-w-sm">
+      <div className="w-[90%] mx-auto grid lg:grid-cols-4 gap-8 p-5 ">
+        <div className="max-w-sm shadow-xl">
           <Card
             imgAlt="chefs picture"
             imgSrc="https://i.ibb.co/6857BPB/chef2.webp"
@@ -25,11 +25,11 @@ const Chefs = () => {
               Here are the biggest
             </p>
             <Button className="w-[50%]" gradientDuoTone="pinkToOrange">
-            Special Food
+            View Recipes
             </Button>
           </Card>
         </div>
-        <div className="max-w-sm">
+        <div className="max-w-sm shadow-xl">
           <Card
           >
             <img className="h-[335px] w-[360px] rounded-lg" src="https://images.pexels.com/photos/3814446/pexels-photo-3814446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
@@ -41,11 +41,11 @@ const Chefs = () => {
               Here are the biggest
             </p>
             <Button className="w-[50%]" gradientDuoTone="pinkToOrange">
-            Special Food
+            View Recipes
             </Button>
           </Card>
         </div>
-        <div className="max-w-sm">
+        <div className="max-w-sm shadow-xl">
           <Card
             imgAlt="Meaningful alt text for an image that is not purely decorative"
             imgSrc="https://i.ibb.co/w0k8Sbb/chef1.webp"
@@ -57,11 +57,11 @@ const Chefs = () => {
               Here are the biggest
             </p>
             <Button className="w-[50%]" gradientDuoTone="pinkToOrange">
-            Special Food
+            View Recipes
             </Button>
           </Card>
         </div>
-        <div className="max-w-sm">
+        <div className="max-w-sm shadow-xl">
           <Card
             imgAlt="Meaningful alt text for an image that is not purely decorative"
             imgSrc="https://i.ibb.co/44Q3DTY/chef3.webp"
@@ -73,7 +73,7 @@ const Chefs = () => {
               Here are the biggest
             </p>
             <Button className="w-[50%]" gradientDuoTone="pinkToOrange"> 
-            Special Food
+            View Recipes
             </Button>
           </Card>
         </div>
