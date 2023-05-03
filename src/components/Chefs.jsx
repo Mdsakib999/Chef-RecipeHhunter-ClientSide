@@ -1,7 +1,17 @@
 import { Button, Card } from "flowbite-react";
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 
 const Chefs = () => {
+  const [foodDatas, setFoodData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/viewFood")
+      .then((res) => res.json())
+      .then((data) => setFoodData(data))
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <div className="bg-slate-100 py-10">
       <h1 className="text-5xl font-bold text-center mt-5">
@@ -11,71 +21,25 @@ const Chefs = () => {
         Meet with your super talented world class chefs.
       </p>
 
-      <div className="w-[90%] mx-auto grid lg:grid-cols-4 gap-8 p-5 ">
-        <div className="max-w-sm shadow-xl">
+      <div className="w-[80%] mx-auto gap-8 p-5 grid lg:grid-cols-3">
+        {foodDatas.map((foodData) => (
           <Card
+            key={foodData.id}
             imgAlt="chefs picture"
-            imgSrc="https://i.ibb.co/6857BPB/chef2.webp"
+            imgSrc={foodData.image}
           >
             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Noteworthy technology acquisitions 2021
+              {foodData.name}
             </h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              Here are the biggest
-            </p>
+            <div className="flex justify-between font-normal text-gray-700 dark:text-gray-400">
+              <p>Experience: {foodData.Experience} Year's</p>
+              <p><i class="fa-solid fa-thumbs-up mr-2 text-xl hover:text-blue-600"></i>{foodData.likes}</p>
+            </div>
             <Button className="w-[50%]" gradientDuoTone="pinkToOrange">
-            View Recipes
+              View Recipes <i class="fa-solid fa-arrow-right ml-2 pt-1"></i>
             </Button>
           </Card>
-        </div>
-        <div className="max-w-sm shadow-xl">
-          <Card
-          >
-            <img className="h-[335px] w-[360px] rounded-lg" src="https://images.pexels.com/photos/3814446/pexels-photo-3814446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
-            "></img>
-            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Noteworthy technology acquisitions 2021
-            </h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              Here are the biggest
-            </p>
-            <Button className="w-[50%]" gradientDuoTone="pinkToOrange">
-            View Recipes
-            </Button>
-          </Card>
-        </div>
-        <div className="max-w-sm shadow-xl">
-          <Card
-            imgAlt="Meaningful alt text for an image that is not purely decorative"
-            imgSrc="https://i.ibb.co/w0k8Sbb/chef1.webp"
-          >
-            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Noteworthy technology acquisitions 2021
-            </h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              Here are the biggest
-            </p>
-            <Button className="w-[50%]" gradientDuoTone="pinkToOrange">
-            View Recipes
-            </Button>
-          </Card>
-        </div>
-        <div className="max-w-sm shadow-xl">
-          <Card
-            imgAlt="Meaningful alt text for an image that is not purely decorative"
-            imgSrc="https://i.ibb.co/44Q3DTY/chef3.webp"
-          >
-            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Noteworthy technology acquisitions 2021
-            </h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              Here are the biggest
-            </p>
-            <Button className="w-[50%]" gradientDuoTone="pinkToOrange"> 
-            View Recipes
-            </Button>
-          </Card>
-        </div>
+        ))}
       </div>
     </div>
   );
