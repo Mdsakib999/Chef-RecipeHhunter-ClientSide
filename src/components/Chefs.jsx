@@ -1,6 +1,7 @@
 import { Button, Card } from "flowbite-react";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Chefs = () => {
   const [foodDatas, setFoodData] = useState([]);
@@ -33,11 +34,16 @@ const Chefs = () => {
             </h5>
             <div className="flex justify-between font-normal text-gray-700 dark:text-gray-400">
               <p>Experience: {foodData.Experience} Year's</p>
-              <p><i class="fa-solid fa-thumbs-up mr-2 text-xl hover:text-blue-600"></i>{foodData.likes}</p>
+              <p>
+                <i class="fa-solid fa-thumbs-up mr-2 text-xl hover:text-blue-600"></i>
+                {foodData.likes}
+              </p>
             </div>
-            <Button className="w-[50%]" gradientDuoTone="pinkToOrange">
-              View Recipes <i class="fa-solid fa-arrow-right ml-2 pt-1"></i>
-            </Button>
+            <Link to={`/chefDetails/${foodData.id}`}>
+              <Button className="w-[50%]" gradientDuoTone="pinkToOrange">
+                View Recipes <i class="fa-solid fa-arrow-right ml-2 pt-1"></i>
+              </Button>
+            </Link>
           </Card>
         ))}
       </div>
