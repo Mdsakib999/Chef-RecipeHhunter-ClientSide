@@ -20,7 +20,7 @@ const FeaturedFood = () => {
               <Button gradientDuoTone="pinkToOrange">See All Food</Button>
             </div>
             <div className=" w-[40%]">
-              <img className="h-96 w-[800px]" src="https://pizzainnpalestine.com/wp-content/uploads/2019/10/menu_image1.jpg" alt="..." />
+              <img className="h-96 w-[800px]" src="https://i.ibb.co/qC3gMrD/food2.jpg" alt="Food Picture" />
             </div>
           </div>
           <div className="flex justify-center items-center gap-8 bg-black">
@@ -32,7 +32,7 @@ const FeaturedFood = () => {
               <Button gradientDuoTone="pinkToOrange">See All Food</Button>
             </div>
             <div className=" w-[40%]">
-              <img className="h-96 w-[800px]" src="https://hiddendepthsdiving.com/wp-content/uploads/2020/04/PadThaiOk-1024x634.jpg" alt="..." />
+              <img className="h-96 w-[800px]" src="https://i.ibb.co/7jt6Pmw/food4.jpg" alt="Food picture" />
             </div>
           </div>
           <div className="flex justify-center items-center gap-8 bg-black">
@@ -44,7 +44,7 @@ const FeaturedFood = () => {
               <Button gradientDuoTone="pinkToOrange">See All Food</Button>
             </div>
             <div className=" w-[40%]">
-              <img className="h-96 w-[800px]" src="https://assets-hvmag-com.s3-accelerate.amazonaws.com/2020/08/BYV2vJ8z-Thai-Food-Hudson-Valley.jpg" alt="..." />
+              <img className="h-96 w-[800px]" src="https://i.ibb.co/hyKVJ29/food3.jpg" alt="Food picture" />
             </div>
           </div>
           <div className="flex justify-center items-center gap-8 bg-black">
@@ -56,7 +56,7 @@ const FeaturedFood = () => {
               <Button gradientDuoTone="pinkToOrange">See All Food</Button>
             </div>
             <div className=" w-[40%]">
-              <img className="h-96 w-[800px]" src="https://www.refrigeratedfrozenfood.com/ext/resources/NEW_RD_Website/DefaultImages/default-pasta.jpg?1430942591" alt="..." />
+              <img className="h-96 w-[800px]" src="https://i.ibb.co/SBCFdf1/food1.jpg" alt="Food Picture" />
             </div>
           </div>
           
