@@ -1,12 +1,13 @@
-import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+import { Button, Label, TextInput } from "flowbite-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
     <div>
-      <h1>Login page</h1>
+      <h1 className="text-4xl font-bold text-center mt-10 mb-5">Login page</h1>
 
-      <form className="flex flex-col gap-4">
+      <form className="lg:w-[30%] mx-auto flex flex-col gap-4 p-5 lg:p-0">
         <div>
           <div className="mb-2 block">
             <Label htmlFor="email2" value="Your email" />
@@ -30,30 +31,13 @@ const Login = () => {
             shadow={true}
           />
         </div>
-        <div>
-          <div className="mb-2 block">
-            <Label htmlFor="repeat-password" value="Repeat password" />
-          </div>
-          <TextInput
-            id="repeat-password"
-            type="password"
-            required={true}
-            shadow={true}
-          />
-        </div>
-        <div className="flex items-center gap-2">
-          <Checkbox id="agree" />
-          <Label htmlFor="agree">
-            I agree with the
-            <a
-              href="/forms"
-              className="text-blue-600 hover:underline dark:text-blue-500"
-            >
-              terms and conditions
-            </a>
-          </Label>
-        </div>
-        <Button type="submit">Register new account</Button>
+
+        <p>New to ThaiFood Corner? <Link className="text-orange-500" to="/">Register</Link></p>
+        
+        
+        <Button className="w-[50%] mx-auto" gradientDuoTone="pinkToOrange">
+                Login
+              </Button>
       </form>
     </div>
   );
