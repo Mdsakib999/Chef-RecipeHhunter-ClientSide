@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Navbar } from "flowbite-react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
+
+  const {user, logOut} = useContext(AuthContext);
+
+  const handelLogout = () =>{
+    logOut()
+    .then()
+    .catch(error => console.log(error));
+  }
+
   return (
     <div className="sticky top-0 z-10">
       <Navbar fluid={true} rounded={true}>
@@ -17,20 +27,33 @@ const Header = () => {
           </span>
         </Navbar>
         <div className="flex md:order-2">
-          <Link to="/login">
+        {user && <Link><i class="fa-solid fa-user text-4xl mr-4"></i>
+          </Link>}
+
+          {
+            user? <Button onClick={handelLogout} gradientDuoTone="pinkToOrange">Logout</Button> : <Link to="/login">
             <Button gradientDuoTone="pinkToOrange">Login</Button>
           </Link>
+          }
+
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? "text-orange-600 font-bold" : "")}
+            className={({ isActive }) =>
+              isActive ? "text-orange-600 font-bold" : ""
+            }
           >
             Home
           </NavLink>
-          <NavLink to="/blog" className={({ isActive }) => (isActive ? "text-orange-600 font-bold" : "")}>
-              Blog
+          <NavLink
+            to="/blog"
+            className={({ isActive }) =>
+              isActive ? "text-orange-600 font-bold" : ""
+            }
+          >
+            Blog
           </NavLink>
         </Navbar.Collapse>
       </Navbar>

@@ -1,42 +1,53 @@
 import { Button } from "flowbite-react";
 import React, { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
-const Login = () => {
-  const { signIn } = useContext(AuthContext);
+function RegistrationForm() {
 
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/"
+  const {createUser} = useContext(AuthContext);
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(email, password);
-
-    signIn(email, password)
-      .then((result) => {
-        const ceratedUser = result.user;
-        console.log(ceratedUser);
-        navigate(from, {replace: true})
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    console.log(name, email, password);
+    createUser(email, password)
+    .then(result => {
+      const ceratedUser = result.user;
+      console.log(ceratedUser)
+    })
+    .catch(error => {
+      console.log(error);
+    })
   };
 
+  
   return (
     <div>
-      <h1 className="text-4xl font-bold text-center mt-10 mb-5">login Page</h1>
-
+      <h1 className="text-4xl font-bold text-center mt-10 mb-5">
+        Register Page
+      </h1>
       <form
-        onSubmit={handleLogin}
+        onSubmit={handleSubmit}
         className="lg:w-[30%] mx-auto bg-slate-100 shadow-md rounded px-8 pt-6 pb-8 mb-10"
       >
-        
+        <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
+            Name:
+          </label>
+          <input
+            className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border"
+            id="name"
+            type="text"
+            placeholder="John Doe"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            required
+          />
+        </div>
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
             Email:
@@ -69,23 +80,21 @@ const Login = () => {
           />
         </div>
         <div className="flex items-center justify-between">
-          <Button
-            type="submit"
-            className="w-[50%] mx-auto"
-            gradientDuoTone="pinkToOrange"
-          >
-            login
-          </Button>
+         
+          <Button type="submit" className="w-[50%] mx-auto" gradientDuoTone="pinkToOrange">
+          Register
+        </Button>
         </div>
         <p className="mt-4">
-          New to this site?
-          <Link className="text-orange-500 font-bold" to="/register">
-            Register
+          Already have an account? 
+          <Link className="text-orange-500 font-bold" to="/login">
+            Login
           </Link>
         </p>
+
       </form>
     </div>
   );
-};
+}
 
-export default Login;
+export default RegistrationForm;

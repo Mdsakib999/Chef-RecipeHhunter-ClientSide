@@ -5,8 +5,9 @@ import Blog from "../components/Blog";
 import ChefDetails from "../components/chefDetails";
 import FoodDetails from "../components/FoodDetails";
 import Login from "../components/Login";
-import Regester from "../components/Regester";
 import Error from "../components/Error";
+import RegistrationForm from "../components/RegistrationForm";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,11 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path:"/register",
-        element: <Regester></Regester>
+        element:<RegistrationForm></RegistrationForm>
       },
       {
         path: "/chefDetails/:id",
-        element: <ChefDetails></ChefDetails>,
+        element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
         loader:({params}) => fetch(`http://localhost:5000/viewFood/${params.id}`)
       },
       {
