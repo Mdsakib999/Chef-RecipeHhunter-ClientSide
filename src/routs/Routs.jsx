@@ -5,11 +5,14 @@ import Blog from "../components/Blog";
 import ChefDetails from "../components/chefDetails";
 import FoodDetails from "../components/FoodDetails";
 import Login from "../components/Login";
+import Regester from "../components/Regester";
+import Error from "../components/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -22,6 +25,10 @@ const router = createBrowserRouter([
       {
         path:"/login",
         element: <Login></Login>,
+      },
+      {
+        path:"/register",
+        element: <Regester></Regester>
       },
       {
         path: "/chefDetails/:id",

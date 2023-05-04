@@ -2,12 +2,24 @@ import { Button, Label, TextInput } from "flowbite-react";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Regester = () => {
   return (
     <div>
-      <h1 className="text-4xl font-bold text-center mt-10 mb-5">Login age</h1>
+      <h1 className="text-4xl font-bold text-center mt-10 mb-5">Register Page</h1>
 
       <form className="lg:w-[30%] mx-auto flex flex-col gap-4 p-5 lg:p-0">
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="name1" value="Your Name" />
+          </div>
+          <TextInput
+            id="name1"
+            type="text"
+            placeholder="Jon David"
+            required={true}
+            shadow={true}
+          />
+        </div>
         <div>
           <div className="mb-2 block">
             <Label htmlFor="email2" value="Your email" />
@@ -33,18 +45,18 @@ const Login = () => {
         </div>
 
         <p>
-          New to ThaiFood Corner?
-          <Link className="text-orange-500" to="/register">
-            Register
+          Already have an account? 
+          <Link className="text-orange-500" to="/login">
+            Login
           </Link>
         </p>
 
         <Button className="w-[50%] mx-auto" gradientDuoTone="pinkToOrange">
-          Login
+          Register
         </Button>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Regester;

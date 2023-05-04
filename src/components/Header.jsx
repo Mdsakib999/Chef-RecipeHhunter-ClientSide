@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Navbar } from "flowbite-react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -23,8 +23,15 @@ const Header = () => {
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
-          <Link to='/'>Home</Link>
-          <Link to='/blog'>Blog</Link>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "text-orange-600 font-bold" : "")}
+          >
+            Home
+          </NavLink>
+          <NavLink to="/blog" className={({ isActive }) => (isActive ? "text-orange-600 font-bold" : "")}>
+              Blog
+          </NavLink>
         </Navbar.Collapse>
       </Navbar>
     </div>
