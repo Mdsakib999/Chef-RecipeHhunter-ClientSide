@@ -22,7 +22,7 @@ function RegistrationForm() {
     event.preventDefault();
     setError('')
     console.log(name, email, password);
-    if(/.{6}/.test(password)) {
+    if(!/.{6}/.test(password)) {
       setError("Password should be at last 6 Character.");
       return;
     }
