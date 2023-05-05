@@ -2,12 +2,11 @@ import { Button } from "flowbite-react";
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-  const { signIn, GoogleSignIn } = useContext(AuthContext);
+  const { signIn, GoogleSignIn, githubSighIn } = useContext(AuthContext);
 
-  
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -18,7 +17,12 @@ const Login = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
+    setError('')
     console.log(email, password);
+    if(/.{6}/.test(password)) {
+      setError("Password should be at last 6 Character.");
+      return;
+    }
 
     signIn(email, password)
       .then((result) => {
@@ -28,6 +32,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
+        setError(error.message);
       });
   };
 
@@ -44,6 +49,24 @@ const Login = () => {
     .catch((error) => {
       // setError(error.message);
       console.log(error.message);
+      setError(error.message);
+    });
+  }
+
+
+  const handelGithubSignIn = () =>{
+    githubSighIn()
+    .then((result) => {
+      const loggedUser = result.user;
+      // toast.success("Login successfully!");
+      // navigate(from, { replace: true });
+      console.log(loggedUser);
+      navigate(from, {replace: true});
+    })
+    .catch((error) => {
+      // setError(error.message);
+      console.log(error.message);
+      setError(error.message);
     });
   }
 
@@ -103,11 +126,11 @@ const Login = () => {
             Register
           </Link>
         </p>
-        
       </form>
+      <p className="text-red-600 text-center font-bold">{error}</p>
       <div className="text-center">
       <button onClick={handelGoogleSignIn} className="b bg-slate-50 rounded-lg mt-5 ml-6 py-2 px-5 font-bold "> <i class="fa-brands fa-google"></i> Login with Google</button> <br />
-        <button className="b bg-slate-50 rounded-lg mt-5 ml-6 mb-20 py-2 px-5 font-bold "> <i class="fa-brands fa-github text-xl"></i> Login with Github</button>
+        <button onClick={handelGithubSignIn} className="b bg-slate-50 rounded-lg mt-5 ml-6 mb-20 py-2 px-5 font-bold "> <i class="fa-brands fa-github text-xl"></i> Login with Github</button>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import {
+    GithubAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
@@ -41,6 +42,13 @@ const GoogleSignIn = () => {
     return signInWithPopup(auth, GoogleProvider);
   };
 
+  const githubSighIn = () =>{
+    setLoading(true);
+    const githubProvider = new GithubAuthProvider();
+
+    return signInWithPopup(auth, githubProvider)
+  }
+
   const logOut = () => {
     return signOut(auth);
   };
@@ -63,6 +71,7 @@ const GoogleSignIn = () => {
     createUser,
     signIn,
     GoogleSignIn,
+    githubSighIn,
     logOut,
   };
 

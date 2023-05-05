@@ -1,28 +1,79 @@
 import { Button } from "flowbite-react";
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 function RegistrationForm() {
 
-  const {createUser} = useContext(AuthContext);
+  const {createUser, githubSighIn, GoogleSignIn} = useContext(AuthContext);
+
+  const [error, setError] = useState('');
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    setError('')
     console.log(name, email, password);
+    if(/.{6}/.test(password)) {
+      setError("Password should be at last 6 Character.");
+      return;
+    }
     createUser(email, password)
+    
     .then(result => {
       const ceratedUser = result.user;
-      console.log(ceratedUser)
+      console.log(ceratedUser);
+      navigate(from, {replace: true});
     })
     .catch(error => {
       console.log(error);
+      setError(error.message);
     })
   };
+
+
+
+  const handelGoogleSignIn = () =>{
+    GoogleSignIn()
+    .then((result) => {
+      const loggedUser = result.user;
+      // toast.success("Login successfully!");
+      // navigate(from, { replace: true });
+      console.log(loggedUser);
+      navigate(from, {replace: true});
+    })
+    .catch((error) => {
+      // setError(error.message);
+      console.log(error.message);
+      setError(error.message);
+    });
+  }
+
+
+  const handelGithubSignIn = () =>{
+    githubSighIn()
+    .then((result) => {
+      const loggedUser = result.user;
+      // toast.success("Login successfully!");
+      // navigate(from, { replace: true });
+      console.log(loggedUser);
+      navigate(from, {replace: true});
+    })
+    .catch((error) => {
+      setError(error.message);
+      console.log(error.message);
+    });
+  }
+
+
 
   
   return (
@@ -93,6 +144,11 @@ function RegistrationForm() {
         </p>
 
       </form>
+      <p className="text-red-600 text-center font-bold">{error}</p>
+      <div className="text-center">
+      <button onClick={handelGoogleSignIn} className="b bg-slate-50 rounded-lg mt-5 ml-6 py-2 px-5 font-bold "> <i class="fa-brands fa-google"></i> Login with Google</button> <br />
+        <button onClick={handelGithubSignIn} className="b bg-slate-50 rounded-lg mt-5 ml-6 mb-20 py-2 px-5 font-bold "> <i class="fa-brands fa-github text-xl"></i> Login with Github</button>
+      </div>
     </div>
   );
 }
