@@ -20,10 +20,10 @@ const Footer = () => {
         <p className="font-bold pt-4">MD Sakib © 2023 All rights reserved</p>
 
         <div>
-          <i class="fa-brands fa-facebook text-5xl mr-8 hover:text-blue-600"></i>
-          <i class="fa-brands fa-twitter text-5xl mr-8 hover:text-blue-500"></i>
-          <i class="fa-brands fa-instagram text-5xl mr-8 hover:text-orange-600"></i>
-          <i class="fa-brands fa-linkedin text-5xl hover:text-blue-500"></i>
+          <i className="fa-brands fa-facebook text-5xl mr-8 hover:text-blue-600"></i>
+          <i className="fa-brands fa-twitter text-5xl mr-8 hover:text-blue-500"></i>
+          <i className="fa-brands fa-instagram text-5xl mr-8 hover:text-orange-600"></i>
+          <i className="fa-brands fa-linkedin text-5xl hover:text-blue-500"></i>
         </div>
       </div>
     </div>

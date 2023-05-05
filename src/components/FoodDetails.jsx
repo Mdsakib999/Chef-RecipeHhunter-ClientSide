@@ -1,6 +1,13 @@
 import { Button } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+
+const handelTost = ()=>{
+    toast('Add to Favourit');
+}
 
 const FoodDetails = () => {
   const { id } = useParams();
@@ -24,6 +31,7 @@ const FoodDetails = () => {
 
   return (
     <div className="w-[80%] mx-auto">
+      <ToastContainer></ToastContainer>
       <h1 className="text-4xl font-semibold text-center mt-8 mb-10">
         Food Details {details?.id}
       </h1>
@@ -38,9 +46,12 @@ const FoodDetails = () => {
           </p>
           <p className="my-2">Ingredients: {details?.ingredients}</p>
           <p>Cooking method: {details?.method}</p>
-          <Button className="mt-5 mb-10" gradientDuoTone="pinkToOrange">
+
+          <Button onClick={handelTost} className="mt-5 mb-10" gradientDuoTone="pinkToOrange">
             Favourite
+            
           </Button>
+          
         </div>
       </dir>
     </div>

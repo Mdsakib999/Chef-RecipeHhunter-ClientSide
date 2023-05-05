@@ -1,17 +1,16 @@
 import React, { useContext } from "react";
-import { Button, Navbar } from "flowbite-react";
+import { Button, Navbar, Tooltip } from "flowbite-react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
 
-  const {user, logOut} = useContext(AuthContext);
-
-  const handelLogout = () =>{
+  const handelLogout = () => {
     logOut()
-    .then()
-    .catch(error => console.log(error));
-  }
+      .then()
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div className="sticky top-0 z-10">
@@ -27,14 +26,21 @@ const Header = () => {
           </span>
         </Navbar>
         <div className="flex md:order-2">
-        {user && <Link><i class="fa-solid fa-user text-4xl mr-4"></i>
-          </Link>}
+          {user && (
+            <Link>
+              <i class="fa-solid fa-user text-4xl mr-4"> </i>
+            </Link>
+          )}
 
-          {
-            user? <Button onClick={handelLogout} gradientDuoTone="pinkToOrange">Logout</Button> : <Link to="/login">
-            <Button gradientDuoTone="pinkToOrange">Login</Button>
-          </Link>
-          }
+          {user ? (
+            <Button onClick={handelLogout} gradientDuoTone="pinkToOrange">
+              Logout
+            </Button>
+          ) : (
+            <Link to="/login">
+              <Button gradientDuoTone="pinkToOrange">Login</Button>
+            </Link>
+          )}
 
           <Navbar.Toggle />
         </div>
