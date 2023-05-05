@@ -2,9 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div>
-      <div className="bg-black text-white text-center h-auto flex justify-evenly items-center">
-        <div>
+    <div className="bg-black text-white">
+      <div className="bg-black text-white text-center h-auto lg:flex justify-evenly items-center">
+        <div className="ml-28 lg:ml-0">
           <img
             className="w-56 h-20 b rounded-lg my-5"
             src="https://i.ibb.co/KV9PFtW/apple1.jpg"
@@ -17,15 +17,15 @@ const Footer = () => {
           />
         </div>
 
-        <p className="font-bold pt-4">MD Sakib © 2023 All rights reserved</p>
-
         <div>
           <i className="fa-brands fa-facebook text-5xl mr-8 hover:text-blue-600"></i>
           <i className="fa-brands fa-twitter text-5xl mr-8 hover:text-blue-500"></i>
           <i className="fa-brands fa-instagram text-5xl mr-8 hover:text-orange-600"></i>
           <i className="fa-brands fa-linkedin text-5xl hover:text-blue-500"></i>
         </div>
+        
       </div>
+      <p className="font-bold pt-4 pb-3 text-center">MD Sakib © 2023 All rights reserved</p>
     </div>
   );
 };

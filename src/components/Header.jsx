@@ -17,7 +17,7 @@ const Header = () => {
       <Navbar fluid={true} rounded={true}>
         <Navbar href="https://flowbite.com/">
           <img
-            src="https://thumbs.dreamstime.com/z/thai-food-restaurant-logo-design-7559128.jpg"
+            src="https://i.ibb.co/JR2NF45/logo-1.jpg"
             className="mr-3 h-6 sm:h-9"
             alt="Flowbite Logo"
           />

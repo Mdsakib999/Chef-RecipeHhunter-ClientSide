@@ -34,12 +34,12 @@ const router = createBrowserRouter([
       {
         path: "/chefDetails/:id",
         element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-        loader:({params}) => fetch(`http://localhost:5000/viewFood/${params.id}`)
+        loader:({params}) => fetch(`https://b7a10-chef-recipe-hunter-server-side-mdsakib999.vercel.app/viewFood/${params.id}`)
       },
       {
         path: "/foodDetails/:id",
         element: <FoodDetails></FoodDetails>,
-        loader:({params}) => fetch(`http://localhost:5000/viewFood/${params.id}`)
+        loader:({params}) => fetch(`https://b7a10-chef-recipe-hunter-server-side-mdsakib999.vercel.app/viewFood/${params.id}`)
       }
     ],
   },
